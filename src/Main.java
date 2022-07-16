@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.Stack;
-
+// 10773 제로
 public class Main
 {
     public static void main(String[] args) throws IOException
