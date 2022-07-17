@@ -1,40 +1,35 @@
 import java.io.*;
-import java.util.Stack;
-// 10773 제로
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+//11047 동전 0
 public class Main
 {
     public static void main(String[] args) throws IOException
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        Stack<Integer> stack = new Stack<>();
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int K = Integer.parseInt(st.nextToken());
+        ArrayList<Integer> arr = new ArrayList<>();
+        int count = 0;
 
-        int K = Integer.parseInt(br.readLine());
-        int result = 0;
-
-        while(K-- > 0)
+        while(N-- > 0)
         {
-            int a = Integer.parseInt(br.readLine());
+            arr.add(Integer.parseInt(br.readLine()));
+        }
 
-            if(a == 0) stack.pop();
-            else
+        for(int i = arr.size()-1; i >=0; i--)
+        {
+            if(K == 0) break;
+            if(arr.get(i) <= K)
             {
-                stack.push(a);
+                count += K / arr.get(i);
+                K = K%arr.get(i);
             }
         }
 
-        if(stack.isEmpty())
-        {
-            System.out.println(0);
-        }
-        else
-        {
-            for (Integer integer : stack)
-            {
-                result += integer;
-            }
-            System.out.println(result);
-        }
-
+        System.out.println(count);
 
     }
 }
