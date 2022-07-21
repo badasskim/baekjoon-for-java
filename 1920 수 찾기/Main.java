@@ -1,7 +1,7 @@
     import java.io.*;
     import java.util.*;
 
-    //1920 수 찾기
+    //1920 수 찾기 하하하!
     public class Main
     {
         static int N;
